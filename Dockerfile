@@ -36,6 +36,8 @@ RUN apt-get update && \
         xterm && \
     \
     localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 && \
+    curl -o /usr/bin/oe-git-proxy http://git.yoctoproject.org/cgit.cgi/poky/plain/scripts/oe-git-proxy && \
+    chmod a+x /usr/bin/oe-git-proxy && \
     rm -rf /var/lib/apt/lists/*
 
 # Switch to regular user for security reasons
