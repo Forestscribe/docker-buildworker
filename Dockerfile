@@ -32,6 +32,7 @@ RUN apt-get update && \
         build-essential \
         chrpath \
         socat \
+        cpio \
         libsdl1.2-dev \
         xterm && \
     \
