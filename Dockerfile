@@ -43,3 +43,6 @@ RUN apt-get update && \
 
 # Switch to regular user for security reasons
 USER buildbot
+
+RUN git config --global user.email "builder@forestscribe.local" && \
+    git config --global user.name "Forestscribe Builder"
