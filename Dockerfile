@@ -46,3 +46,8 @@ USER buildbot
 
 RUN git config --global user.email "builder@forestscribe.local" && \
     git config --global user.name "Forestscribe Builder"
+ADD start_worker.sh /
+
+WORKDIR /buildbot
+
+CMD /start_worker.sh
