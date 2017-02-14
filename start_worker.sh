@@ -1,4 +1,4 @@
-#!/bin/sh
+chown -R buildbot /buildbot-worker/
 cp /buildbot/buildbot.tac /buildbot-worker/
 cd /buildbot-worker
-exec /usr/local/bin/dumb-init twistd -ny buildbot.tac
+exec su buildbot -c "twistd -ny buildbot.tac"

@@ -41,13 +41,13 @@ RUN apt-get update && \
     chmod a+x /usr/bin/oe-git-proxy && \
     rm -rf /var/lib/apt/lists/*
 
-# Switch to regular user for security reasons
 USER buildbot
-
 RUN git config --global user.email "builder@forestscribe.local" && \
     git config --global user.name "Forestscribe Builder"
 ADD start_worker.sh /
 
 WORKDIR /buildbot
 
-CMD /start_worker.sh
+# bootstrap run as root in order to setup permissions for the docker volume
+USER root
+CMD ["/usr/local/bin/dumb-init", "/bin/sh", "-c", "/start_worker.sh"]
