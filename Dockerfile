@@ -33,6 +33,7 @@ RUN apt-get update && \
         chrpath \
         socat \
         cpio \
+        moreutils \
         libsdl1.2-dev \
         xterm && \
     \
